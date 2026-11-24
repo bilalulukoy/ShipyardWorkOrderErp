@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: shipyard_postgres
+    environment:
+      POSTGRES_DB: shipyard_erp
+      POSTGRES_USER: shipyard_admin
+      POSTGRES_PASSWORD: ShipyardPassword123!
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  shipyard-api:
+    build: .
+    container_name: shipyard_workorder_api
+    depends_on:
+      - postgres
+    ports:
+      - "5080:8080"
+    environment:
+      ConnectionStrings__PostgreSql: "Host=postgres;Port=5432;Database=shipyard_erp;Username=shipyard_admin;Password=ShipyardPassword123!"
+
+volumes:
+  postgres_data:

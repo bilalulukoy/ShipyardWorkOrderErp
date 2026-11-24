@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="ShipyardErp.API/ShipyardErp.API.csproj" />
+  <Project Path="ShipyardErp.Application/ShipyardErp.Application.csproj" />
+  <Project Path="ShipyardErp.Domain/ShipyardErp.Domain.csproj" />
+  <Project Path="ShipyardErp.Infrastructure/ShipyardErp.Infrastructure.csproj" />
+</Solution>
